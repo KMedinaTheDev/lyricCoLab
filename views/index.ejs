@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lyric CoLaboraters</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>May The Lyrics Be True.:.& The Words Flow Through</h1>
+
+
+
+  <h3>Lyrics</h3>
+  <ul class="lyrics">
+  <% for(var i=0; i<lyrics.length; i++) {%>
+    <li class="lyrics">
+      <span><%= lyrics[i].name %></span>
+      <span><%= lyrics[i].line1 %></span>
+      <span><%= lyrics[i].line2 %></span>
+      <span><%= lyrics[i].line3 %></span>
+      <span><%= lyrics[i].line4 %></span>
+      <span><%= lyrics[i].line5 %></span>
+      <span><%= lyrics[i].thumbUp %></span>
+      <span><%= lyrics[i].thumbDown %></span>
+      <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+      <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+    </li>
+  <% } %>
+  </ul>
+
+  <h2>Add A Stanza</h2>
+<section class="formContain">
+  <form  action="/lyrics" method="POST">
+    <input type="text" placeholder="Stage Name" name="name">
+    <input type="text" placeholder="line1" name="line1">
+    <input type="text" placeholder="line2" name="line2">
+    <input type="text" placeholder="line3" name="line3">
+    <input type="text" placeholder="line4" name="line4">
+    <input type="text" placeholder="line5" name="line5">
+    <button type="submit">Submit</button>
+  </form>
+</section>
+  <script src="main.js"></script>
+  </body>
+  <footer>Created By: KMedinaTheDev</footer>
+
+</body>
+</html>

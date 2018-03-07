@@ -1,0 +1,25 @@
+body{
+  background-image: url("bostonNT.jpg");
+  /* background: black; */
+}
+h1 {
+  margin-top: 20px;
+  margin-left: 7%;
+  color:rgb(156, 12, 12);
+  font-size: 3em;
+}
+h3{
+  margin-top: 40px;
+  margin-left: 30%;
+  font-size: 3em;
+}
+h1, h3{
+  color:rgb(156, 12, 12);
+}
+input{
+  flex-grow: 5;
+}
+.formContain{
+  margin-left: 30%;
+  flex-wrap: wrap;
+}
