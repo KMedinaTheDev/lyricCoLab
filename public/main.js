@@ -6,21 +6,13 @@ Array.from(thumbUp).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
         const line1 = this.parentNode.parentNode.childNodes[3].innerText
-        const line2 = this.parentNode.parentNode.childNodes[5].innerText
-        const line3 = this.parentNode.parentNode.childNodes[7].innerText
-        const line4 = this.parentNode.parentNode.childNodes[9].innerText
-        const line5 = this.parentNode.parentNode.childNodes[11].innerText
-        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[13].innerText)
+        const thumbUp = parseFloat(this.parentNode.parentNode.childNodes[5].innerText)
         fetch('thumbUp', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             'name': name,
             'line1': line1,
-            'line2': line2,
-            'line3': line3,
-            'line4': line4,
-            'line5': line5,
             'thumbUp':thumbUp,
             'thumbDown':thumbDown
           })
@@ -38,21 +30,13 @@ Array.from(thumbDown).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
         const line1 = this.parentNode.parentNode.childNodes[3].innerText
-        const line2 = this.parentNode.parentNode.childNodes[5].innerText
-        const line3 = this.parentNode.parentNode.childNodes[7].innerText
-        const line4 = this.parentNode.parentNode.childNodes[9].innerText
-        const line5 = this.parentNode.parentNode.childNodes[11].innerText
-        const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[13].innerText)
+        const thumbDown = parseFloat(this.parentNode.parentNode.childNodes[7].innerText)
         fetch('thumbDown', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             'name': name,
             'line1': line1,
-            'line2': line2,
-            'line3': line3,
-            'line4': line4,
-            'line5': line5,
             'thumbUp':thumbUp,
             'thumbDown':thumbDown
           })
@@ -71,10 +55,6 @@ Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
         const line1 = this.parentNode.parentNode.childNodes[3].innerText
-        const line2 = this.parentNode.parentNode.childNodes[5].innerText
-        const line3 = this.parentNode.parentNode.childNodes[7].innerText
-        const line4 = this.parentNode.parentNode.childNodes[9].innerText
-        const line5 = this.parentNode.parentNode.childNodes[11].innerText
         fetch('lyrics', {
           method: 'delete',
           headers: {
@@ -82,11 +62,7 @@ Array.from(trash).forEach(function(element) {
           },
           body: JSON.stringify({
             'name': name,
-            'line1': line1,
-            'line2': line2,
-            'line3': line3,
-            'line4': line4,
-            'line5': line5
+            'line1': line1
           })
         }).then(function (response) {
            window.location.reload()

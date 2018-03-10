@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/lyrics', (req, res) => {
-  db.collection('lyrics').save({name: req.body.name, line1: req.body.line1, line2: req.body.line2, line3: req.body.line3, line4: req.body.line4, line5: req.body.line5, thumbUp:0, thumbDown:0}, (err, result) => {
+  db.collection('lyrics').save({name: req.body.name, line1: req.body.line1, thumbUp:0, thumbDown:0}, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
      res.redirect('/')
@@ -35,7 +35,7 @@ app.post('/lyrics', (req, res) => {
 
 app.put('/thumbUp', (req, res) => {
   db.collection('lyrics')
-  .findOneAndUpdate({name: req.body.name, line1: req.body.line1, line2: req.body.line2, line3: req.body.line3, line4: req.body.line4, line5: req.body.line5}, {
+  .findOneAndUpdate({name: req.body.name, line1: req.body.line1}, {
     $set: {
       thumbUp:req.body.thumbUp + 1
     }
@@ -49,7 +49,7 @@ app.put('/thumbUp', (req, res) => {
 })
 app.put('/thumbDown', (req, res) => {
   db.collection('lyrics')
-  .findOneAndUpdate({name: req.body.name, line1: req.body.line1, line2: req.body.line2, line3: req.body.line3, line4: req.body.line4, line5: req.body.line5}, {
+  .findOneAndUpdate({name: req.body.name, line1: req.body.line1}, {
     $set: {
       thumbDown:req.body.thumbDown + 1
     }
@@ -63,7 +63,7 @@ app.put('/thumbDown', (req, res) => {
 })
 
 app.delete('/lyrics', (req, res) => {
-  db.collection('lyrics').findOneAndDelete({name: req.body.name, line1: req.body.line1, line2: req.body.line2, line3: req.body.line3, line4: req.body.line4, line5: req.body.line5}, (err, result) => {
+  db.collection('lyrics').findOneAndDelete({name: req.body.name, line1: req.body.line1}, (err, result) => {
     if (err) return res.send(500, err)
     res.send('Lyrics deleted!')
   })
